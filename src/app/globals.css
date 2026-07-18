@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --ground: #0A0908;
+  --surface: #131210;
+  --surface-alt: #181614;
+  --border: #242220;
+  --text-1: #EDEAE0;
+  --text-2: #5C5850;
+  --text-3: #3A3630;
+  --accent: #C4A25A;
+  --accent-hover: #D8BA7A;
+  --accent-light: rgba(196, 162, 90, 0.12);
+  --green: #2A8A60;
+  --green-light: rgba(42, 138, 96, 0.12);
+  --amber: #D97706;
+  --amber-light: rgba(217, 119, 6, 0.10);
+  --red: #A04040;
+  --red-light: rgba(160, 64, 64, 0.12);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ground: #EDEAE0;
+    --surface: #FFFFFF;
+    --surface-alt: #F5F3ED;
+    --border: #D8D4CA;
+    --text-1: #0A0908;
+    --text-2: #5C5850;
+    --text-3: #A09A90;
+    --accent: #C4A25A;
+    --accent-hover: #9A7A3A;
+    --accent-light: rgba(196, 162, 90, 0.10);
+    --green: #16A34A;
+    --green-light: rgba(22, 163, 74, 0.08);
+    --amber: #D97706;
+    --amber-light: rgba(217, 119, 6, 0.08);
+    --red: #DC2626;
+    --red-light: rgba(220, 38, 38, 0.08);
+  }
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border: var(--border);
+  --color-text-1: var(--text-1);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+  --color-gold: #C4A25A;
+  --color-gold-hi: #D8BA7A;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-space-mono);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--text-1);
+  font-family: var(--font-body), 'IBM Plex Sans Arabic', 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+[dir="rtl"] {
+  font-family: 'IBM Plex Sans Arabic', var(--font-body), 'Segoe UI', system-ui, sans-serif;
+}

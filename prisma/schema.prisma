@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("client")
+  company   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  batches   Batch[]
+}
+
+model Batch {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  name             String
+  status           String   @default("pending")
+  totalDebtors     Int      @default(0)
+  processedCount   Int      @default(0)
+  columnMapping    String?
+  originalFileName String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  debtors          Debtor[]
+}
+
+model Debtor {
+  id             String    @id @default(cuid())
+  batchId        String
+  batch          Batch     @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  clientName     String
+  phoneNumber    String
+  referenceId    String?
+  debtValueSar   Float     @default(0)
+  debtAgeDays    Int       @default(0)
+  companyName    String?
+  status         String    @default("pending")
+  callId         String?
+  callOutcome    String?
+  callSummary    String?
+  ptpAmount      Float?
+  ptpDate        String?
+  payProbability Int?
+  sentiment      String?
+  transcript     String?
+  attempts       Int       @default(0)
+  lastCallAt     DateTime?
+  rawData        String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
