@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma db push && tsx prisma/seed.ts && next build",
-    "start": "next start",
+    "build": "prisma generate && next build",
+    "start": "prisma db push && tsx prisma/seed.ts && next start",
     "lint": "eslint",
     "postinstall": "prisma generate"
   },
@@ -18,6 +18,7 @@
     "prisma": "^7.8.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "tsx": "^4.23.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -29,7 +30,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "tsx": "^4.23.1",
     "typescript": "^5"
   }
 }
