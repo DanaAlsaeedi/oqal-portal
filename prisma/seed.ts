@@ -1,7 +1,7 @@
 import { PrismaClient } from "../src/generated/prisma/client";
 import { hash } from "bcryptjs";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({} as any);
 
 async function main() {
   const email = process.env.ADMIN_EMAIL || "admin@oqal.ai";
