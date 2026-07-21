@@ -112,7 +112,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (wavBuffers.length === 1) {
-    return new NextResponse(wavBuffers[0].buffer, {
+    return new NextResponse(wavBuffers[0].buffer as ArrayBuffer, {
       headers: { "Content-Type": "audio/wav" },
     });
   }
@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
   // Concatenate: extract PCM from each WAV properly
   const meta = extractWavMeta(wavBuffers[0]);
   if (!meta) {
-    return new NextResponse(wavBuffers[0].buffer, {
+    return new NextResponse(wavBuffers[0].buffer as ArrayBuffer, {
       headers: { "Content-Type": "audio/wav" },
     });
   }
@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
 
   const finalWav = buildWav(meta.fmtChunk, combined);
 
-  return new NextResponse(finalWav.buffer, {
+  return new NextResponse(finalWav.buffer as ArrayBuffer, {
     headers: { "Content-Type": "audio/wav" },
   });
 }
