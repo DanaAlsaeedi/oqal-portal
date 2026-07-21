@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "prisma db push || true; tsx prisma/seed.ts || true; next start",
+    "start": "node start.mjs",
     "lint": "eslint",
     "postinstall": "prisma generate"
   },
